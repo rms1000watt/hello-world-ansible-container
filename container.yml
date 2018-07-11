@@ -1,0 +1,20 @@
+version: "2"
+
+settings:
+  project_name: hello-world
+  conductor:
+    base: centos:7
+  roles_path:
+  - ./roles
+
+services:
+  hello-world:
+    from: ubuntu
+    command: ["ls -la"]
+    ports:
+    - "9999:9999"
+    roles:
+    - hello-world
+    dev_overrides:
+      environment:
+      - REPO_NAME: hello-world-ansible-container

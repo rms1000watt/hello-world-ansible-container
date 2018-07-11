@@ -1,0 +1,5 @@
+---
+- name: Hello World
+  copy:
+    content: '{"hello":"world"}'
+    dest: "/etc/hello-world.json"
