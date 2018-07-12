@@ -9,6 +9,7 @@ Hello World to Ansible Container. (This thing is quirky.. 😩)
 - [Install](#install)
 - [Build](#build)
 - [Run](#run)
+- [References](#references)
 - [Debug Later](#debug-later)
 
 ## Install
@@ -29,6 +30,11 @@ ansible-container --debug build
 ```bash
 docker run -it --rm hello-world-hello-world
 ```
+
+## References
+
+- [container.yml spec](https://docs.ansible.com/ansible-container/container_yml/reference.html)
+- [ansible.cfg spec](https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg)
 
 ## Debug Later
 
