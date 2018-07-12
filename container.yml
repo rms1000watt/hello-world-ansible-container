@@ -3,18 +3,14 @@ version: "2"
 settings:
   project_name: hello-world
   conductor:
-    base: centos:7
+    # In Docker Hub: ansible/container-conductor-alpine-3.5:0.9.2
+    base: alpine:3.5
   roles_path:
   - ./roles
 
 services:
   hello-world:
-    from: ubuntu
-    command: ["ls -la"]
-    ports:
-    - "9999:9999"
+    from: alpine
+    command: ["cat", "/etc/hello-world.json"]
     roles:
     - hello-world
-    dev_overrides:
-      environment:
-      - REPO_NAME: hello-world-ansible-container
