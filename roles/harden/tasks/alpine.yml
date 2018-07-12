@@ -1,0 +1,5 @@
+---
+- name: remove shell and busybox
+  command: rm -rf /bin/busybox
+  # raw: find . -type l | grep -v /proc | grep -v /_usr | xargs ls -la | grep /bin/busybox  | awk '{print $9}' | xargs rm -f /bin/busybox
+
