@@ -2,7 +2,15 @@
 
 ## Introduction
 
-Hello World to Ansible Container. (This thing is quirky.. 😩)
+Hello World to Ansible Container. (This thing is quirky during install.. 😩)
+
+Added `docker-squash`. This allows your cleanup roles to take effect. Squashes `hello-world-go` image from 409MB to 8.19MB
+
+```bash
+REPOSITORY                               TAG                 IMAGE ID            CREATED              SIZE
+hello-world-hello-world-go               latest              869edfe2d61b        About a minute ago   8.19MB
+hello-world-hello-world-go               20180712170425      4e10bafeac41        2 minutes ago        409MB
+```
 
 ## Contents
 
@@ -17,13 +25,18 @@ Hello World to Ansible Container. (This thing is quirky.. 😩)
 ```bash
 # Downgrade.. so things work..
 sudo pip install -U pip==9.0.3 docker==2.7.0
-sudo pip install "ansible-container[docker]"
+sudo pip install "ansible-container[docker]" docker-squash
 ```
 
 ## Build
 
 ```bash
-ansible-container --debug build
+ansible-container build
+docker-squash hello-world-hello-world-go
+
+# The sleep just gives time for ansible to fully cleanup and commit everything
+sleep 30
+docker tag $(docker images -f since=hello-world-hello-world-go -q) hello-world-hello-world-go:latest
 ```
 
 ## Run
@@ -51,5 +64,5 @@ docker run -it --rm hello-world-hello-world-go
 # SUCCEEDS
 # conductor alpine:3.5
 
-# Why do we have to downgrade..
+# Why do we have to downgrade python deps..
 ```

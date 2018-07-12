@@ -1,3 +1,8 @@
 ---
 - include_tasks: alpine.yml
   when: ansible_distribution == "Alpine"
+
+- name: clean gopath
+  file:
+    path: /go
+    state: absent

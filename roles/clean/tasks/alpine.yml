@@ -1,15 +1,6 @@
 ---
-- name: clean git
-  apk:
-    name: git
-    state: absent
+- name: clean all repos
+  command: apk del git go musl-dev gcc binutils musl
 
-- name: clean golang
-  apk:
-    name: go
-    state: absent
-
-- name: clean musl-dev
-  apk:
-    name: musl-dev
-    state: absent
+- name: clean apk cache
+  command: rm -rf /var/cache/apk/*
