@@ -16,7 +16,7 @@ services:
     - hello-world
 
   hello-world-go:
-    from: alpine
+    from: alpine:3.8
     command: ["/hello-world"]
     roles:
     - git
