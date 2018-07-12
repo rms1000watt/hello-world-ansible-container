@@ -1,0 +1,4 @@
+---
+github_repo: https://github.com/rms1000watt/dont-look-here-just-a-hello-world-go-binary.git
+src_dir: /go/src/github.com/rms1000watt/dont-look-here-just-a-hello-world-go-binary
+bin_path: /hello-world

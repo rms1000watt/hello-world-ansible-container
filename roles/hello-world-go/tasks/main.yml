@@ -1,0 +1,17 @@
+---
+- name: clone repo
+  git:
+    repo: "{{github_repo}}"
+    dest: "{{src_dir}}"
+
+- name: test repo
+  command: go test ./...
+  args:
+    chdir: "{{src_dir}}"
+
+- name: build repo
+  command: go build -o {{bin_path}}
+  args:
+    chdir: "{{src_dir}}"
+  environment:
+    GOOS: linux

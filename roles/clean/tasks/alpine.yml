@@ -1,0 +1,15 @@
+---
+- name: clean git
+  apk:
+    name: git
+    state: absent
+
+- name: clean golang
+  apk:
+    name: go
+    state: absent
+
+- name: clean musl-dev
+  apk:
+    name: musl-dev
+    state: absent

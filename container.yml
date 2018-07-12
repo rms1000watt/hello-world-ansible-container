@@ -14,3 +14,12 @@ services:
     command: ["cat", "/etc/hello-world.json"]
     roles:
     - hello-world
+
+  hello-world-go:
+    from: alpine
+    command: ["/hello-world"]
+    roles:
+    - git
+    - golang
+    - hello-world-go
+    - clean

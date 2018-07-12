@@ -1,0 +1,10 @@
+---
+- name: install golang
+  apk:
+    name: go
+    state: present
+
+- name: install musl-dev
+  apk:
+    name: musl-dev
+    state: present

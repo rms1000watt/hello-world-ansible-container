@@ -15,7 +15,8 @@ Hello World to Ansible Container. (This thing is quirky.. 😩)
 ## Install
 
 ```bash
-sudo pip install -U pip==9.0.3
+# Downgrade.. so things work..
+sudo pip install -U pip==9.0.3 docker==2.7.0
 sudo pip install "ansible-container[docker]"
 ```
 
@@ -29,6 +30,7 @@ ansible-container --debug build
 
 ```bash
 docker run -it --rm hello-world-hello-world
+docker run -it --rm hello-world-hello-world-go
 ```
 
 ## References
@@ -44,14 +46,10 @@ docker run -it --rm hello-world-hello-world
 # sudo pip3 install pip-tools==2.0.1
 # https://github.com/jazzband/pip-tools/issues/648
 
-
-# FAILS
-# ansible-container build
-# SUCCEEDS
-# ansible-container --debug build
-
 # FAILS
 # conductor centos:7 (`/_usr/bin/python` does not exist)
 # SUCCEEDS
 # conductor alpine:3.5
+
+# Why do we have to downgrade..
 ```

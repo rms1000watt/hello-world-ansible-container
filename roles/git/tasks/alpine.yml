@@ -1,0 +1,5 @@
+---
+- name: install git
+  apk:
+    name: git
+    state: present
